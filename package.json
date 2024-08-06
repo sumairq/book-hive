@@ -4,7 +4,9 @@
   "description": "Book hive is a fully featured application for book lovers like me to be able to track their progress, share their reading lists with others and have discussions over books.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",

@@ -5,7 +5,7 @@ module.exports = {
     testEnvironment: "node",
 
     //Define the root directory for tests and modules
-    roots: ["<rootdir>/tests"],
+    roots: ["<rootDir>/tests"],
 
     //Use ts-jest to transform typeScript files
     transform: {
