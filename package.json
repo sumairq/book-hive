@@ -1,0 +1,23 @@
+{
+  "name": "book-hive",
+  "version": "1.0.0",
+  "description": "Book hive is a fully featured application for book lovers like me to be able to track their progress, share their reading lists with others and have discussions over books.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.1.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
