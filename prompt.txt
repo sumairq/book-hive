@@ -1,0 +1,393 @@
+```markdown
+# Book Hive — Production Grade Full Stack Application Prompt
+
+You are a senior full-stack architect and staff-level engineer.
+
+I want you to design and build a production-quality web application called **Book Hive**.
+
+The application is a social reading tracker platform where users can:
+- Track books they are reading
+- Track reading progress
+- Follow other users
+- View activity feeds from followed users
+- Write notes for books
+- Control note visibility (public/private)
+- Maintain reading lists
+- Discover books using the Open Library API
+
+The application must be built using:
+
+- Next.js (App Router)
+- TypeScript
+- MongoDB
+- Mongoose
+- Tailwind CSS
+- JWT Authentication
+- Role-Based Access Control (RBAC)
+
+The project should use Next.js for BOTH frontend and backend functionality.
+
+---
+
+# Core Features
+
+## Authentication & Authorization
+
+Implement:
+- JWT authentication
+- Secure password hashing using bcrypt
+- Access token + refresh token flow
+- Role-based authorization
+
+Roles:
+- user
+- admin
+
+Users should be able to:
+- register
+- login
+- logout
+- update profile
+- upload avatar
+- change password
+
+Admins should be able to:
+- moderate users
+- remove abusive public notes
+- suspend accounts
+
+---
+
+# User Profiles
+
+Each user profile should contain:
+- username
+- bio
+- avatar
+- followers count
+- following count
+- books currently reading
+- completed books
+- want-to-read books
+- public reading notes
+- reading statistics
+
+Users should be able to:
+- follow/unfollow users
+- see another user’s public profile
+- view public notes
+
+---
+
+# Dashboard
+
+Each authenticated user should have a dashboard showing:
+
+- total books read
+- books currently reading
+- want-to-read count
+- reading streak
+- pages read
+- reading activity graph
+- recent notes
+- favorite genres
+- reading goals progress
+
+The dashboard should feel modern and data-rich.
+
+---
+
+# Books Functionality
+
+Use the Open Library API as the external books data source.
+
+Users should be able to:
+- search books
+- view book details
+- add books to lists:
+  - currently reading
+  - completed
+  - want to read
+  - dropped
+- track reading progress percentage
+- update current page
+- rate books
+- leave reviews
+
+Cache book data in MongoDB when appropriate to reduce unnecessary API calls.
+
+---
+
+# Notes System
+
+Users can create notes for books.
+
+Notes are:
+- tied to a specific user
+- tied to a specific book
+- markdown-enabled
+- editable
+- deletable
+
+Visibility options:
+- public
+- private
+
+Public notes should appear:
+- on user profiles
+- in feeds (optional)
+- on dedicated notes pages
+
+Private notes should only be visible to the owner.
+
+Implement proper authorization checks.
+
+---
+
+# Social Feed
+
+Users should have a feed showing activities from followed users.
+
+Feed events:
+- started reading a book
+- completed a book
+- posted a public note
+- rated a book
+- achieved a reading streak milestone
+
+Feed should support:
+- pagination
+- infinite scroll
+- optimistic UI updates
+
+---
+
+# Database Design
+
+Design proper Mongoose schemas/models for:
+- User
+- Book
+- Note
+- Follow
+- ReadingProgress
+- Activity
+- Review
+- ReadingGoal
+
+Include:
+- indexes
+- schema validation
+- timestamps
+- relationships
+- query optimization
+
+Explain architecture decisions.
+
+---
+
+# API Architecture
+
+Build scalable API routes using Next.js Route Handlers.
+
+Requirements:
+- RESTful architecture
+- consistent API response format
+- centralized error handling
+- request validation using Zod
+- middleware for auth & RBAC
+- rate limiting
+- pagination utilities
+- reusable service layer
+- proper HTTP status codes
+
+---
+
+# Frontend Requirements
+
+UI should be modern, polished, responsive, and production quality.
+
+Use:
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion where appropriate
+
+Pages:
+- landing page
+- login/register
+- dashboard
+- profile page
+- feed page
+- book details page
+- notes page
+- settings page
+
+Implement:
+- loading states
+- skeleton loaders
+- empty states
+- error boundaries
+- optimistic updates
+- responsive layouts
+- dark mode
+
+---
+
+# State Management
+
+Use:
+- React Query / TanStack Query
+- Context API or Zustand where appropriate
+
+Avoid unnecessary prop drilling.
+
+---
+
+# Security Requirements
+
+Implement:
+- secure JWT handling
+- HTTP-only cookies where appropriate
+- CSRF protection
+- input sanitization
+- rate limiting
+- API validation
+- XSS prevention
+- environment variable validation
+- protected routes
+- secure middleware
+
+Explain security decisions clearly.
+
+---
+
+# Performance Requirements
+
+Optimize:
+- database queries
+- image loading
+- API caching
+- route-level code splitting
+- server components where appropriate
+- lazy loading
+- pagination
+- SEO metadata
+
+Use Next.js best practices.
+
+---
+
+# Testing
+
+Implement:
+- unit tests
+- API tests
+- integration tests
+
+Use:
+- Jest
+- React Testing Library
+
+---
+
+# DevOps & Tooling
+
+Configure:
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+- environment variable management
+- Docker support
+- production-ready folder structure
+
+Provide:
+- `.env.example`
+- setup instructions
+- deployment instructions
+
+Deployment target:
+- Vercel
+
+Database:
+- MongoDB Atlas
+
+---
+
+# Deliverables
+
+I want:
+1. Complete production-ready architecture
+2. Folder structure
+3. Database schema design
+4. API design
+5. Authentication flow
+6. Full UI/UX structure
+7. Step-by-step implementation plan
+8. Reusable component architecture
+9. Backend service architecture
+10. Security best practices
+11. Performance optimization strategy
+12. Scalable coding conventions
+13. Suggested future improvements
+
+---
+
+# Coding Expectations
+
+Generate:
+- clean architecture
+- strongly typed code
+- reusable abstractions
+- maintainable patterns
+- scalable folder structure
+- production-grade code quality
+
+Do NOT generate beginner-level boilerplate.
+
+Think like a senior engineer building a startup-ready SaaS platform.
+
+Before coding:
+1. Design the architecture
+2. Explain technical decisions
+3. Create the database schema strategy
+4. Define API contracts
+5. Define folder structure
+6. Then begin implementation incrementally
+
+---
+
+# Additional Features You Should Suggest
+
+You should also suggest:
+- gamification features
+- reading streak systems
+- badges/achievements
+- book clubs
+- commenting system
+- notifications
+- recommendation engine
+- AI-generated summaries
+- AI reading insights
+- social reactions
+- bookmarking highlights
+- export/import reading history
+- analytics dashboards
+- admin moderation tools
+- activity heatmaps
+- real-time updates using websockets or Pusher
+- search optimization
+- accessibility improvements
+- offline support / PWA support
+
+Also suggest:
+- monetization opportunities
+- scalable architecture improvements
+- future migration strategies
+- microservices considerations if the app grows
+
+Act as both:
+- a senior software architect
+- a product strategist
+
+and proactively improve the idea where appropriate.
+```

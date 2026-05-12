@@ -1,20 +1,17 @@
-module.exports = {
-  // Use ts-jest preset for testing TypeScript files with Jest
-  preset: "ts-jest",
-  //Set the test environment to Node.js
-  testEnvironment: "node",
+const nextJest = require('next/jest.js');
 
-  //Define the root directory for tests and modules
-  roots: ["<rootDir>/tests"],
+const createJestConfig = nextJest({ dir: './' });
 
-  //Use ts-jest to transform typeScript files
-  transform: {
-    "^.+\\.tsx?$": "ts-jest",
+/** @type {import('jest').Config} */
+const customConfig = {
+  testEnvironment: 'jsdom',
+  setupFilesAfterEach: ['<rootDir>/jest.setup.ts'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
-
-  // Regular expression to find test files
-  testRegex: "((\\.|/)(test|spec))\\.tsx?$",
-
-  // File extensions to recognize in module resolution
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  testMatch: ['<rootDir>/tests/**/*.test.{ts,tsx}'],
+  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  testTimeout: 30000,
 };
+
+module.exports = createJestConfig(customConfig);
